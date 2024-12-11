@@ -6,7 +6,8 @@ export const getBubbleSortSteps = (array) => {
   steps.push({
     array: [...arr],
     comparing: [],
-    currentLine: 0
+    currentLine: 0,
+    explanation: 'Starting the bubble sort algorithm'
   });
 
   do {
@@ -15,18 +16,22 @@ export const getBubbleSortSteps = (array) => {
       steps.push({
         array: [...arr],
         comparing: [i, i + 1],
-        currentLine: 3
+        currentLine: 3,
+        explanation: `Comparing elements at positions ${i} and ${i + 1}`
       });
 
       if (arr[i] > arr[i + 1]) {
-        [arr[i], arr[i + 1]] = [arr[i + 1], arr[i]];
+        const temp = arr[i];
+        arr[i] = arr[i + 1];
+        arr[i + 1] = temp;
         swapped = true;
 
         steps.push({
           array: [...arr],
           comparing: [i, i + 1],
           currentLine: 5,
-          swapped: true
+          swapped: true,
+          explanation: `Swapped ${temp} and ${arr[i]} since ${temp} > ${arr[i]}`
         });
       }
     }
@@ -35,7 +40,8 @@ export const getBubbleSortSteps = (array) => {
   steps.push({
     array: [...arr],
     comparing: [],
-    currentLine: -1
+    currentLine: -1,
+    explanation: 'Sorting complete!'
   });
 
   return steps;

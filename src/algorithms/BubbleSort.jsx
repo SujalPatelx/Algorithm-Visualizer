@@ -4,6 +4,7 @@ import Controls from '../components/Controls';
 import Visualizer from '../components/Visualizer';
 import CodePanel from '../components/CodePanel';
 import { getBubbleSortSteps } from '../utils/sortingAlgorithms';
+import StepExplanation from '../components/StepExplanation';
 
 const AlgorithmContainer = styled.div`
   max-width: 1400px;
@@ -203,6 +204,11 @@ function BubbleSort() {
             <Visualizer 
               array={history[currentStep]?.array || array}
               comparingIndices={history[currentStep]?.comparing || []}
+            />
+            <StepExplanation 
+              algorithm="bubble"
+              currentStep={currentStep}
+              history={history}
             />
           </Section>
           <Section>
