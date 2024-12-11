@@ -26,5 +26,9 @@
     "eslint-plugin-react-refresh": "^0.4.14",
     "globals": "^15.12.0",
     "vite": "^6.0.1"
-  }
+  },
+  "description": "An interactive web application built with React and Vite that helps users understand how different sorting algorithms work through step-by-step visualizations.",
+  "main": "eslint.config.js",
+  "author": "",
+  "license": "ISC"
 }
