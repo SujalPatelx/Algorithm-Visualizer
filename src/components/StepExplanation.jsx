@@ -34,7 +34,10 @@ function StepExplanation({ algorithm, currentStep, history }) {
   const getExplanation = () => {
     if (!history[currentStep]) return null;
     
-    const { comparing, swapped } = history[currentStep];
+    const { explanation, comparing, swapped } = history[currentStep];
+    
+    // If the step has a predefined explanation, use it
+    if (explanation) return explanation;
     
     switch (algorithm) {
       case 'bubble':
@@ -47,7 +50,24 @@ function StepExplanation({ algorithm, currentStep, history }) {
         }
         return `Comparing elements at positions ${i} and ${j}: ${history[currentStep].array[i]} ≤ ${history[currentStep].array[j]}, no swap needed`;
       
-      // Add cases for other algorithms
+      case 'quick':
+        if (comparing.length === 0) {
+          return "Initial array state";
+        }
+        if (comparing.length === 1) {
+          return `Selected pivot element: ${history[currentStep].array[comparing[0]]}`;
+        }
+        return `Comparing elements: ${history[currentStep].array[comparing[0]]} and ${history[currentStep].array[comparing[1]]}`;
+      
+      case 'merge':
+        if (comparing.length === 0) {
+          return "Initial array state";
+        }
+        if (comparing.length === 1) {
+          return `Placing ${history[currentStep].array[comparing[0]]} in sorted position`;
+        }
+        return `Comparing elements: ${history[currentStep].array[comparing[0]]} and ${history[currentStep].array[comparing[1]]}`;
+      
       default:
         return null;
     }
