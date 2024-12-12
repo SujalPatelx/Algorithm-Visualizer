@@ -4,6 +4,7 @@ import Controls from '../components/Controls';
 import Visualizer from '../components/Visualizer';
 import CodePanel from '../components/CodePanel';
 import { getMergeSortSteps } from '../utils/sortingAlgorithms';
+import StepExplanation from '../components/StepExplanation';
 
 const AlgorithmContainer = styled.div`
   max-width: 1400px;
@@ -28,6 +29,12 @@ const Section = styled.div`
   padding: 1rem;
   box-shadow: 0 2px 8px rgba(74, 144, 226, 0.08);
   border: 1px solid #e8f0fe;
+`;
+
+const SectionTitle = styled.h2`
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
 `;
 
 function MergeSort() {
@@ -116,12 +123,19 @@ function MergeSort() {
       />
       <VisualizerContainer>
         <Section>
+          <SectionTitle>Array Visualization</SectionTitle>
           <Visualizer 
             array={history[currentStep]?.array || array}
             comparingIndices={history[currentStep]?.comparing || []}
           />
+          <StepExplanation 
+            algorithm="merge"
+            currentStep={currentStep}
+            history={history}
+          />
         </Section>
         <Section>
+          <SectionTitle>Algorithm Code</SectionTitle>
           <CodePanel 
             algorithm="merge"
             currentStep={currentStep}
