@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Controls from '../components/Controls';
 import Visualizer from '../components/Visualizer';
 import CodePanel from '../components/CodePanel';
+import StepExplanation from '../components/StepExplanation';
 import { getQuickSortSteps } from '../utils/sortingAlgorithms';
 
 const AlgorithmContainer = styled.div`
@@ -169,6 +170,11 @@ function QuickSort() {
             <Visualizer 
               array={history[currentStep]?.array || array}
               comparingIndices={history[currentStep]?.comparing || []}
+            />
+            <StepExplanation 
+              algorithm="quick"
+              currentStep={currentStep}
+              history={history}
             />
           </Section>
           <Section>
