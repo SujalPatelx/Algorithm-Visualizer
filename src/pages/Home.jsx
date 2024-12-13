@@ -5,7 +5,10 @@ import styled from 'styled-components';
 const HomeContainer = styled.div`
   padding: 2rem;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 50px auto;
+  background: linear-gradient(135deg, #e0eafc, #cfdef3);
+  border-radius: 16px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 `;
 
 const Header = styled.div`
@@ -14,50 +17,55 @@ const Header = styled.div`
 `;
 
 const Title = styled.h1`
-  font-size: 2.5rem;
-  color: var(--primary-color);
+  font-size: 3rem;
+  color: #4A90E2;
   margin-bottom: 1rem;
+  font-weight: bold;
 `;
 
 const Description = styled.p`
-  font-size: 1.2rem;
-  color: var(--text-color);
-  max-width: 800px;
+  font-size: 1.3rem;
+  color: #333;
+  max-width: 900px;
   margin: 0 auto;
-  line-height: 1.6;
+  line-height: 1.8;
+  font-weight: 500;
 `;
 
 const AlgorithmsGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
-  padding: 1rem;
+  padding: 2rem 0;
 `;
 
 const AlgorithmCard = styled.div`
-  background: white;
-  border-radius: 12px;
+  background: #ffffff;
+  border-radius: 16px;
   padding: 2rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: ${props => props.comingSoon ? 'not-allowed' : 'pointer'};
   position: relative;
-  opacity: ${props => props.comingSoon ? 0.7 : 1};
+  opacity: ${props => props.comingSoon ? 0.6 : 1};
 
   &:hover {
-    transform: ${props => !props.comingSoon && 'translateY(-5px)'};
-    box-shadow: ${props => !props.comingSoon && '0 6px 12px rgba(0, 0, 0, 0.15)'};
+    transform: ${props => !props.comingSoon && 'translateY(-10px)'};
+    box-shadow: ${props => !props.comingSoon && '0 12px 24px rgba(0, 0, 0, 0.15)'};
   }
 `;
 
 const CardTitle = styled.h2`
-  color: var(--primary-color);
+  color: #333;
   margin-bottom: 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
 `;
 
 const CardDescription = styled.p`
-  color: var(--text-color);
-  line-height: 1.5;
+  color: #666;
+  line-height: 1.6;
+  font-size: 1rem;
 `;
 
 const Complexity = styled.div`
@@ -65,26 +73,29 @@ const Complexity = styled.div`
   padding-top: 1rem;
   border-top: 1px solid #eee;
   font-size: 0.9rem;
-  color: #666;
+  color: #555;
 `;
 
 const CategoryTitle = styled.h2`
-  font-size: 1.8rem;
-  color: var(--text-color);
-  margin: 2rem 0 1rem;
+  font-size: 2rem;
+  color: #4A90E2;
+  margin: 3rem 0 1.5rem;
   text-align: left;
+  border-left: 5px solid #4A90E2;
+  padding-left: 1rem;
+  font-weight: bold;
 `;
 
 const ComingSoonBadge = styled.div`
   position: absolute;
   top: 1rem;
   right: 1rem;
-  background: var(--warning-color);
+  background: #ff6347;
   color: white;
   padding: 0.5rem 1rem;
   border-radius: 20px;
-  font-size: 0.8rem;
-  font-weight: 500;
+  font-size: 0.9rem;
+  font-weight: bold;
 `;
 
 const algorithmCategories = [
@@ -174,11 +185,9 @@ function Home() {
   return (
     <HomeContainer>
       <Header>
-        <Title>Algorithm Visualizer</Title>
+        <Title>Explore the World of Algorithms</Title>
         <Description>
-          Welcome to Algorithm Visualizer! This interactive tool helps you understand 
-          how different algorithms work through step-by-step visualization. 
-          Select an algorithm below to get started.
+          Step into the fascinating world of algorithms! Discover, learn, and visualize step-by-step how these fundamental concepts work. Dive into categories like Sorting, Searching, and Graph Algorithms.
         </Description>
       </Header>
 
@@ -195,8 +204,8 @@ function Home() {
                 <CardTitle>{algo.name}</CardTitle>
                 <CardDescription>{algo.description}</CardDescription>
                 <Complexity>
-                  <div>Time Complexity: {algo.timeComplexity}</div>
-                  <div>Space Complexity: {algo.spaceComplexity}</div>
+                  <div><strong>Time:</strong> {algo.timeComplexity}</div>
+                  <div><strong>Space:</strong> {algo.spaceComplexity}</div>
                 </Complexity>
                 {algo.comingSoon && (
                   <ComingSoonBadge>Coming Soon</ComingSoonBadge>
@@ -210,4 +219,4 @@ function Home() {
   );
 }
 
-export default Home; 
+export default Home;
