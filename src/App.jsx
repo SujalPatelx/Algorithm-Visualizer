@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import BubbleSort from './algorithms/BubbleSort';
 import QuickSort from './algorithms/QuickSort';
 import MergeSort from './algorithms/MergeSort';
+import Resources from './components/Resources';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/bubble-sort" element={<BubbleSort />} />
         <Route path="/quick-sort" element={<QuickSort />} />
         <Route path="/merge-sort" element={<MergeSort />} />
+        <Route path="/resources" element={<Resources />} />
       </Routes>
     </Router>
   );
