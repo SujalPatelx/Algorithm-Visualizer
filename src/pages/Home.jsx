@@ -5,67 +5,68 @@ import styled from 'styled-components';
 const HomeContainer = styled.div`
   padding: 2rem;
   max-width: 1200px;
-  margin: 50px auto;
-  background: linear-gradient(135deg, #e0eafc, #cfdef3);
-  border-radius: 16px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+  background: linear-gradient(to bottom, #f4f6f9, #ffffff);
+  border-radius: 12px;
 `;
 
 const Header = styled.div`
   text-align: center;
   margin-bottom: 4rem;
+  padding: 2rem;
+  background-color: #1e90ff;
+  color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 `;
 
 const Title = styled.h1`
   font-size: 3rem;
-  color: #4A90E2;
-  margin-bottom: 1rem;
   font-weight: bold;
+  margin-bottom: 1rem;
+  color: #fff;
 `;
 
 const Description = styled.p`
-  font-size: 1.3rem;
-  color: #333;
-  max-width: 900px;
+  font-size: 1.2rem;
+  max-width: 800px;
   margin: 0 auto;
   line-height: 1.8;
-  font-weight: 500;
+  color: #f0f0f0;
 `;
 
 const AlgorithmsGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
-  padding: 2rem 0;
+  padding: 1rem;
 `;
 
 const AlgorithmCard = styled.div`
-  background: #ffffff;
-  border-radius: 16px;
+  background: #fff;
+  border-radius: 12px;
   padding: 2rem;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: ${props => props.comingSoon ? 'not-allowed' : 'pointer'};
   position: relative;
-  opacity: ${props => props.comingSoon ? 0.6 : 1};
+  opacity: ${props => props.comingSoon ? 0.7 : 1};
 
   &:hover {
-    transform: ${props => !props.comingSoon && 'translateY(-10px)'};
-    box-shadow: ${props => !props.comingSoon && '0 12px 24px rgba(0, 0, 0, 0.15)'};
+    transform: ${props => !props.comingSoon && 'translateY(-8px)'};
+    box-shadow: ${props => !props.comingSoon && '0 8px 16px rgba(0, 0, 0, 0.2)'};
   }
 `;
 
 const CardTitle = styled.h2`
   color: #333;
-  margin-bottom: 1rem;
   font-size: 1.5rem;
-  font-weight: bold;
+  margin-bottom: 1rem;
 `;
 
 const CardDescription = styled.p`
   color: #666;
   line-height: 1.6;
-  font-size: 1rem;
 `;
 
 const Complexity = styled.div`
@@ -73,16 +74,14 @@ const Complexity = styled.div`
   padding-top: 1rem;
   border-top: 1px solid #eee;
   font-size: 0.9rem;
-  color: #555;
+  color: #888;
 `;
 
 const CategoryTitle = styled.h2`
   font-size: 2rem;
-  color: #4A90E2;
-  margin: 3rem 0 1.5rem;
+  color: #1e90ff;
+  margin: 2rem 0 1rem;
   text-align: left;
-  border-left: 5px solid #4A90E2;
-  padding-left: 1rem;
   font-weight: bold;
 `;
 
@@ -94,19 +93,19 @@ const ComingSoonBadge = styled.div`
   color: white;
   padding: 0.5rem 1rem;
   border-radius: 20px;
-  font-size: 0.9rem;
-  font-weight: bold;
+  font-size: 0.8rem;
+  font-weight: 600;
 `;
 
 const algorithmCategories = [
   {
     id: 'sorting',
-    title: 'Sorting',
+    title: 'Sorting Algorithms',
     algorithms: [
       {
         id: 'bubble',
         name: 'Bubble Sort',
-        description: 'A simple sorting algorithm that repeatedly steps through the list, compares adjacent elements and swaps them if they are in the wrong order.',
+        description: 'Simple and slow but educational sorting algorithm.',
         timeComplexity: 'O(n²)',
         spaceComplexity: 'O(1)',
         path: '/bubble-sort'
@@ -114,7 +113,7 @@ const algorithmCategories = [
       {
         id: 'quick',
         name: 'Quick Sort',
-        description: 'An efficient, in-place sorting algorithm that uses a divide-and-conquer strategy to sort elements quickly.',
+        description: 'A faster, more efficient sorting technique.',
         timeComplexity: 'O(n log n)',
         spaceComplexity: 'O(log n)',
         path: '/quick-sort'
@@ -122,7 +121,7 @@ const algorithmCategories = [
       {
         id: 'merge',
         name: 'Merge Sort',
-        description: 'A divide-and-conquer algorithm that divides the input array into two halves, recursively sorts them, and then merges the sorted halves.',
+        description: 'Divide and conquer sorting approach.',
         timeComplexity: 'O(n log n)',
         spaceComplexity: 'O(n)',
         path: '/merge-sort'
@@ -136,7 +135,7 @@ const algorithmCategories = [
       {
         id: 'search',
         name: 'Binary Search',
-        description: 'An efficient search algorithm that finds the position of a target value within a sorted array.',
+        description: 'Efficient way to search in a sorted array.',
         timeComplexity: 'O(log n)',
         spaceComplexity: 'O(1)',
         path: '/binary-search',
@@ -145,7 +144,7 @@ const algorithmCategories = [
       {
         id: 'rotation',
         name: 'Array Rotation',
-        description: 'Algorithm to rotate an array by a given number of positions.',
+        description: 'Rotate elements of an array.',
         timeComplexity: 'O(n)',
         spaceComplexity: 'O(1)',
         path: '/array-rotation',
@@ -160,7 +159,7 @@ const algorithmCategories = [
       {
         id: 'dijkstra',
         name: "Dijkstra's Algorithm",
-        description: 'An algorithm for finding the shortest paths between nodes in a graph.',
+        description: 'Shortest path algorithm for graphs.',
         timeComplexity: 'O(V² + E)',
         spaceComplexity: 'O(V)',
         path: '/dijkstra',
@@ -169,7 +168,7 @@ const algorithmCategories = [
       {
         id: 'bfs',
         name: 'Breadth First Search',
-        description: 'A graph traversal algorithm that explores all vertices at the present depth before moving on to vertices at the next depth level.',
+        description: 'Explores all neighbors at the current depth.',
         timeComplexity: 'O(V + E)',
         spaceComplexity: 'O(V)',
         path: '/bfs',
@@ -187,7 +186,7 @@ function Home() {
       <Header>
         <Title>Explore the World of Algorithms</Title>
         <Description>
-          Step into the fascinating world of algorithms! Discover, learn, and visualize step-by-step how these fundamental concepts work. Dive into categories like Sorting, Searching, and Graph Algorithms.
+          Dive into the world of algorithms with interactive visualizations, in-depth explanations, and hands-on practice. Start exploring today!
         </Description>
       </Header>
 
@@ -204,8 +203,8 @@ function Home() {
                 <CardTitle>{algo.name}</CardTitle>
                 <CardDescription>{algo.description}</CardDescription>
                 <Complexity>
-                  <div><strong>Time:</strong> {algo.timeComplexity}</div>
-                  <div><strong>Space:</strong> {algo.spaceComplexity}</div>
+                  <div>Time Complexity: {algo.timeComplexity}</div>
+                  <div>Space Complexity: {algo.spaceComplexity}</div>
                 </Complexity>
                 {algo.comingSoon && (
                   <ComingSoonBadge>Coming Soon</ComingSoonBadge>
