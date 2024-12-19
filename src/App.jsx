@@ -6,6 +6,9 @@ import BubbleSort from './algorithms/BubbleSort';
 import QuickSort from './algorithms/QuickSort';
 import MergeSort from './algorithms/MergeSort';
 import Resources from './components/Resources';
+import Factorial from './pages/Factorial';
+import InsertionSort from './algorithms/InsertionSort';
+import SelectionSort from './algorithms/SelectionSort';
 
 function App() {
   return (
@@ -17,6 +20,9 @@ function App() {
         <Route path="/quick-sort" element={<QuickSort />} />
         <Route path="/merge-sort" element={<MergeSort />} />
         <Route path="/resources" element={<Resources />} />
+        <Route path="/factorial" element={<Factorial />} />
+        <Route path="/insertion-sort" element={<InsertionSort />} />
+        <Route path="/selection-sort" element={<SelectionSort />} />
       </Routes>
     </Router>
   );
