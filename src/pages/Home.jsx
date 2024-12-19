@@ -125,30 +125,36 @@ const algorithmCategories = [
         timeComplexity: 'O(n log n)',
         spaceComplexity: 'O(n)',
         path: '/merge-sort'
+      },
+      {
+        id: 'insertion',
+        name: 'Insertion Sort',
+        description: 'Simple and efficient for small data sets.',
+        timeComplexity: 'O(n²)',
+        spaceComplexity: 'O(1)',
+        path: '/insertion-sort'
+      },
+      {
+        id: 'selection',
+        name: 'Selection Sort',
+        description: 'Simple sorting algorithm with O(n²) complexity.',
+        timeComplexity: 'O(n²)',
+        spaceComplexity: 'O(1)',
+        path: '/selection-sort'
       }
     ]
   },
   {
-    id: 'array',
-    title: 'Array Operations',
+    id: 'math',
+    title: 'Mathematical Algorithms',
     algorithms: [
       {
-        id: 'search',
-        name: 'Binary Search',
-        description: 'Efficient way to search in a sorted array.',
-        timeComplexity: 'O(log n)',
-        spaceComplexity: 'O(1)',
-        path: '/binary-search',
-        comingSoon: true
-      },
-      {
-        id: 'rotation',
-        name: 'Array Rotation',
-        description: 'Rotate elements of an array.',
+        id: 'factorial',
+        name: 'Factorial Calculator',
+        description: 'Visualize factorial calculation with step-by-step animations.',
         timeComplexity: 'O(n)',
-        spaceComplexity: 'O(1)',
-        path: '/array-rotation',
-        comingSoon: true
+        spaceComplexity: 'O(n)',
+        path: '/factorial'
       }
     ]
   },
