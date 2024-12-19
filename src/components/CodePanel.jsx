@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import InsertionSort from '../algorithms/InsertionSort';
 
 const CodeContainer = styled.div`
   background-color: #1e1e1e;
@@ -81,6 +82,32 @@ const mergeSortCode = [
   '}'
 ];
 
+const insertionSortCode = [
+  'for (i = 1; i < array.length; i++) {',
+  '    key = array[i]',
+  '    j = i - 1',
+  '    while (j >= 0 && array[j] > key) {',
+  '        array[j + 1] = array[j]',
+  '        j--',
+  '    }',
+  '    array[j + 1] = key',
+  '}'
+];
+
+const selectionSortCode = [
+  'for (i = 0; i < array.length - 1; i++) {',
+  '    minIdx = i',
+  '    for (j = i + 1; j < array.length; j++) {',
+  '        if (array[j] < array[minIdx]) {',
+  '            minIdx = j',
+  '        }',
+  '    }',
+  '    if (minIdx !== i) {',
+  '        [array[i], array[minIdx]] = [array[minIdx], array[i]]',
+  '    }',
+  '}'
+];
+
 const CodePanel = ({ algorithm, currentStep, comparing }) => {
   const getHighlightedLines = () => {
     if (!comparing || comparing.length === 0) return [];
@@ -105,6 +132,24 @@ const CodePanel = ({ algorithm, currentStep, comparing }) => {
         }
         return [2, 3, 4];
       
+      case 'insertion':
+        if (comparing.length === 1) {
+          return [1, 2];
+        }
+        if (comparing.length === 2) {
+          return [4, 5, 6];
+        }
+        return [7, 8];
+      
+      case 'selection':
+        if (comparing.length === 1) {
+          return [1, 2];
+        }
+        if (comparing.length === 2) {
+          return [3, 4, 5];
+        }
+        return [8, 9];
+      
       default:
         return [];
     }
@@ -118,6 +163,10 @@ const CodePanel = ({ algorithm, currentStep, comparing }) => {
         return quickSortCode;
       case 'merge':
         return mergeSortCode;
+      case 'insertion':
+        return insertionSortCode;
+      case 'selection':
+        return selectionSortCode;
       default:
         return bubbleSortCode;
     }
@@ -131,6 +180,10 @@ const CodePanel = ({ algorithm, currentStep, comparing }) => {
         return 'Quick Sort Algorithm';
       case 'merge':
         return 'Merge Sort Algorithm';
+      case 'insertion':
+        return 'Insertion Sort Algorithm';
+      case 'selection':
+        return 'Selection Sort Algorithm';
       default:
         return 'Sorting Algorithm';
     }
