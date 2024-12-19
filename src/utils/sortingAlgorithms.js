@@ -204,3 +204,113 @@ export const getMergeSortSteps = (array) => {
 
   return steps;
 };
+
+export const getInsertionSortSteps = (array) => {
+  const steps = [];
+  const arr = [...array];
+
+  steps.push({
+    array: [...arr],
+    comparing: [],
+    explanation: 'Starting Insertion Sort algorithm'
+  });
+
+  for (let i = 1; i < arr.length; i++) {
+    let key = arr[i];
+    let j = i - 1;
+
+    steps.push({
+      array: [...arr],
+      comparing: [i],
+      explanation: `Selected ${key} as key element`
+    });
+
+    while (j >= 0 && arr[j] > key) {
+      steps.push({
+        array: [...arr],
+        comparing: [j, j + 1],
+        explanation: `Comparing ${arr[j]} with ${key}`
+      });
+
+      arr[j + 1] = arr[j];
+      j--;
+
+      steps.push({
+        array: [...arr],
+        comparing: [j + 1],
+        explanation: `Shifted ${arr[j + 1]} to the right`
+      });
+    }
+
+    arr[j + 1] = key;
+    steps.push({
+      array: [...arr],
+      comparing: [j + 1],
+      explanation: `Placed ${key} in its correct position`
+    });
+  }
+
+  steps.push({
+    array: [...arr],
+    comparing: [],
+    explanation: 'Insertion Sort completed!'
+  });
+
+  return steps;
+};
+
+export const getSelectionSortSteps = (array) => {
+  const steps = [];
+  const arr = [...array];
+
+  steps.push({
+    array: [...arr],
+    comparing: [],
+    explanation: 'Starting Selection Sort algorithm'
+  });
+
+  for (let i = 0; i < arr.length - 1; i++) {
+    let minIdx = i;
+
+    steps.push({
+      array: [...arr],
+      comparing: [i],
+      explanation: `Looking for smallest element starting from index ${i}`
+    });
+
+    for (let j = i + 1; j < arr.length; j++) {
+      steps.push({
+        array: [...arr],
+        comparing: [minIdx, j],
+        explanation: `Comparing ${arr[minIdx]} with ${arr[j]}`
+      });
+
+      if (arr[j] < arr[minIdx]) {
+        minIdx = j;
+        steps.push({
+          array: [...arr],
+          comparing: [minIdx],
+          explanation: `Found new minimum: ${arr[minIdx]}`
+        });
+      }
+    }
+
+    if (minIdx !== i) {
+      [arr[i], arr[minIdx]] = [arr[minIdx], arr[i]];
+      steps.push({
+        array: [...arr],
+        comparing: [i, minIdx],
+        explanation: `Swapped ${arr[i]} with ${arr[minIdx]}`,
+        swapped: true
+      });
+    }
+  }
+
+  steps.push({
+    array: [...arr],
+    comparing: [],
+    explanation: 'Selection Sort completed!'
+  });
+
+  return steps;
+};
