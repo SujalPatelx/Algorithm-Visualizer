@@ -155,6 +155,14 @@ const algorithmCategories = [
         timeComplexity: 'O(n)',
         spaceComplexity: 'O(n)',
         path: '/factorial'
+      },
+      {
+        id: 'fibonacci',
+        name: 'Fibonacci Sequence',
+        description: 'Visualize the Fibonacci sequence generation with step-by-step animations.',
+        timeComplexity: 'O(n)',
+        spaceComplexity: 'O(1)',
+        path: '/fibonacci'
       }
     ]
   },
