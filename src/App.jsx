@@ -9,6 +9,7 @@ import Resources from './components/Resources';
 import Factorial from './pages/Factorial';
 import InsertionSort from './algorithms/InsertionSort';
 import SelectionSort from './algorithms/SelectionSort';
+import Fibonacci from './pages/Fibonacci';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/factorial" element={<Factorial />} />
         <Route path="/insertion-sort" element={<InsertionSort />} />
         <Route path="/selection-sort" element={<SelectionSort />} />
+        <Route path="/fibonacci" element={<Fibonacci />} />
       </Routes>
     </Router>
   );
