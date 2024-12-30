@@ -5,6 +5,7 @@ import Visualizer from '../components/Visualizer';
 import CodePanel from '../components/CodePanel';
 import { getBubbleSortSteps } from '../utils/sortingAlgorithms';
 import StepExplanation from '../components/StepExplanation';
+import QuizPanel from '../components/QuizPanel';
 
 const AlgorithmContainer = styled.div`
   max-width: 1400px;
@@ -90,6 +91,10 @@ const Complexity = styled.div`
       color: var(--primary-color);
     }
   }
+`;
+
+const QuizSection = styled(Section)`
+  margin-top: 2rem;
 `;
 
 function BubbleSort() {
@@ -220,6 +225,11 @@ function BubbleSort() {
             />
           </Section>
         </VisualizerContainer>
+
+        <QuizSection>
+          <SectionTitle>Test Your Knowledge</SectionTitle>
+          <QuizPanel algorithm="bubble" />
+        </QuizSection>
       </VisualizerWrapper>
     </AlgorithmContainer>
   );
