@@ -10,7 +10,7 @@ import Factorial from './pages/Factorial';
 import InsertionSort from './algorithms/InsertionSort';
 import SelectionSort from './algorithms/SelectionSort';
 import Fibonacci from './pages/Fibonacci';
-
+import CaesarCipher from './algorithms/CaesarCipher';
 function App() {
   return (
     <Router>
@@ -25,6 +25,8 @@ function App() {
         <Route path="/insertion-sort" element={<InsertionSort />} />
         <Route path="/selection-sort" element={<SelectionSort />} />
         <Route path="/fibonacci" element={<Fibonacci />} />
+        <Route path="/caesar-cipher" element={<CaesarCipher />} />
+
       </Routes>
     </Router>
   );
