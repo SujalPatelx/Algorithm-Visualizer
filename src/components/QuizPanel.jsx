@@ -184,9 +184,182 @@ const QuizPanel = ({ algorithm }) => {
         options: ["O(1)", "O(log n)", "O(n)", "O(n²)"],
         correctAnswer: 2,
         explanation: "Merge Sort requires O(n) extra space to merge the sorted subarrays."
+      },
+      {
+        question: "What is the time complexity of Merge Sort?",
+        options: ["O(n)", "O(n log n)", "O(n²)", "O(2ⁿ)"],
+        correctAnswer: 1,
+        explanation: "Merge Sort has a consistent time complexity of O(n log n) in all cases."
+      },
+      {
+        question: "Which of these is a key characteristic of Merge Sort?",
+        options: [
+          "In-place sorting",
+          "Stable sorting",
+          "Uses pivot element",
+          "Requires no extra space"
+        ],
+        correctAnswer: 1,
+        explanation: "Merge Sort is a stable sorting algorithm, meaning it preserves the relative order of equal elements."
+      },
+      {
+        question: "What is the divide-and-conquer strategy in Merge Sort?",
+        options: [
+          "Split array in half, sort halves, merge",
+          "Find pivot, partition around it",
+          "Bubble up largest elements",
+          "Select minimum element repeatedly"
+        ],
+        correctAnswer: 0,
+        explanation: "Merge Sort recursively splits the array in half, sorts the halves, and then merges them back together."
       }
     ],
-    // Add more questions for other algorithms
+    caesar: [
+      {
+        question: "What is the key characteristic of the Caesar Cipher?",
+        options: [
+          "It uses random substitution",
+          "It shifts letters by a fixed number",
+          "It reverses the text",
+          "It uses multiple alphabets"
+        ],
+        correctAnswer: 1,
+        explanation: "The Caesar Cipher shifts each letter in the plaintext by a fixed number of positions in the alphabet."
+      },
+      {
+        question: "What is the time complexity of the Caesar Cipher encryption?",
+        options: ["O(1)", "O(n)", "O(n²)", "O(log n)"],
+        correctAnswer: 1,
+        explanation: "The Caesar Cipher has a time complexity of O(n) as it needs to process each character in the input text exactly once."
+      },
+      {
+        question: "What is a major weakness of the Caesar Cipher?",
+        options: [
+          "It's too slow",
+          "It requires too much memory",
+          "It's easily broken by frequency analysis",
+          "It can only encrypt numbers"
+        ],
+        correctAnswer: 2,
+        explanation: "The Caesar Cipher is vulnerable to frequency analysis because it maintains the frequency patterns of letters in the original text."
+      },
+      {
+        question: "What happens when you apply a shift of 26 in the Caesar Cipher?",
+        options: [
+          "The text becomes encrypted",
+          "The text remains the same",
+          "The text becomes reversed",
+          "The text becomes corrupted"
+        ],
+        correctAnswer: 1,
+        explanation: "A shift of 26 returns to the original letter position in the alphabet, resulting in the same text."
+      }
+    ],
+    insertion: [
+      {
+        question: "What is the time complexity of Insertion Sort?",
+        options: ["O(n)", "O(n log n)", "O(n²)", "O(1)"],
+        correctAnswer: 2,
+        explanation: "Insertion Sort has a time complexity of O(n²) due to its nested loops for insertion operations."
+      },
+      {
+        question: "When is Insertion Sort most efficient?",
+        options: [
+          "With large random arrays",
+          "With nearly sorted arrays",
+          "With reverse sorted arrays",
+          "With arrays containing duplicates"
+        ],
+        correctAnswer: 1,
+        explanation: "Insertion Sort performs best with nearly sorted arrays, achieving almost linear time complexity."
+      },
+      {
+        question: "What is a key characteristic of Insertion Sort?",
+        options: [
+          "It requires extra space",
+          "It maintains relative order of equal elements",
+          "It always swaps adjacent elements",
+          "It needs a pivot element"
+        ],
+        correctAnswer: 1,
+        explanation: "Insertion Sort is stable, meaning it maintains the relative order of equal elements in the sorted array."
+      }
+    ],
+    selection: [
+      {
+        question: "What is the time complexity of Selection Sort?",
+        options: ["O(n)", "O(n log n)", "O(n²)", "O(1)"],
+        correctAnswer: 2,
+        explanation: "Selection Sort has a time complexity of O(n²) as it uses nested loops to find the minimum element."
+      },
+      {
+        question: "How many swaps does Selection Sort perform?",
+        options: [
+          "O(n²) swaps",
+          "O(n) swaps",
+          "O(log n) swaps",
+          "O(1) swaps"
+        ],
+        correctAnswer: 1,
+        explanation: "Selection Sort performs O(n) swaps, which is optimal among comparison-based sorting algorithms."
+      },
+      {
+        question: "What is the space complexity of Selection Sort?",
+        options: ["O(n)", "O(log n)", "O(n²)", "O(1)"],
+        correctAnswer: 3,
+        explanation: "Selection Sort is an in-place sorting algorithm with O(1) space complexity."
+      }
+    ],
+    fibonacci: [
+      {
+        question: "What is the time complexity of recursive Fibonacci?",
+        options: ["O(n)", "O(log n)", "O(2ⁿ)", "O(n²)"],
+        correctAnswer: 2,
+        explanation: "The naive recursive Fibonacci implementation has exponential time complexity O(2ⁿ)."
+      },
+      {
+        question: "What is the space complexity of iterative Fibonacci?",
+        options: ["O(n)", "O(1)", "O(log n)", "O(2ⁿ)"],
+        correctAnswer: 1,
+        explanation: "The iterative Fibonacci implementation has constant space complexity O(1)."
+      },
+      {
+        question: "What is the Fibonacci sequence formula?",
+        options: [
+          "F(n) = F(n-1) + F(n-2)",
+          "F(n) = F(n-1) × F(n-2)",
+          "F(n) = 2F(n-1)",
+          "F(n) = F(n-1)²"
+        ],
+        correctAnswer: 0,
+        explanation: "The Fibonacci sequence is defined as F(n) = F(n-1) + F(n-2), with F(0) = 0 and F(1) = 1."
+      }
+    ],
+    factorial: [
+      {
+        question: "What is the time complexity of calculating factorial?",
+        options: ["O(n)", "O(log n)", "O(n²)", "O(2ⁿ)"],
+        correctAnswer: 0,
+        explanation: "The factorial calculation has linear time complexity O(n) as it performs n multiplications."
+      },
+      {
+        question: "What is 0! (zero factorial)?",
+        options: ["0", "1", "undefined", "infinity"],
+        correctAnswer: 1,
+        explanation: "By definition, 0! equals 1, which is a special case in factorial calculations."
+      },
+      {
+        question: "Which data type is best for storing factorial results?",
+        options: [
+          "Integer",
+          "Float",
+          "BigInt",
+          "Double"
+        ],
+        correctAnswer: 2,
+        explanation: "BigInt is best for factorial calculations as results quickly exceed normal integer limits."
+      }
+    ]
   };
 
   const ScoreDisplay = styled.div`
@@ -250,7 +423,7 @@ const QuizPanel = ({ algorithm }) => {
 
   return (
     <QuizContainer>
-      <QuizTitle>Quiz Time!</QuizTitle>
+      <QuizTitle>Quiz Time!</QuizTitle> 
       <ScoreDisplay>
         Question {currentQuestionIndex + 1} of {questions[algorithm].length}
         {" | "}Score: {score}
