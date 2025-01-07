@@ -189,6 +189,21 @@ const algorithmCategories = [
         comingSoon: true
       }
     ]
+  },
+  {
+    id: 'cryptography',
+    title: 'Cryptography Algorithms',
+    algorithms: [
+      {
+        id: 'caesar',
+        name: 'Caesar Cipher',
+        description: 'A simple substitution cipher that shifts letters by a fixed amount.',
+        timeComplexity: 'O(n)',
+        spaceComplexity: 'O(n)',
+        path: '/caesar-cipher'
+      }
+      // Add more cryptography algorithms here
+    ]
   }
 ];
 
