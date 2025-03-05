@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react"
 import styled from "styled-components"
 import { Play, Pause, RotateCcw, SkipBack, SkipForward, Repeat, FastForward } from 'lucide-react'
+import QuizPanel from '../components/QuizPanel';
 
 // Reusing styled components from FactorialVisualizer
 const Container = styled.div`
@@ -203,6 +204,25 @@ const ResultBox = styled.div`
   }
 `
 
+const Section = styled.div`
+  margin-top: 2rem;
+`
+
+const SectionTitle = styled.h2`
+  font-size: 1.25rem;
+  color: var(--text-color);
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+`
+
+const QuizContainer = styled.div`
+  background: #fff;
+  border-radius: 16px;
+  padding: 48px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  margin-top: 2rem;
+`
+
 export default function FibonacciVisualizer() {
   const [input, setInput] = useState("6")
   const [steps, setSteps] = useState([])
@@ -396,6 +416,11 @@ export default function FibonacciVisualizer() {
           )}
         </VisualizationContainer>
       </VisualizerContainer>
+
+      <QuizContainer>
+        <SectionTitle>Test Your Knowledge</SectionTitle>
+        <QuizPanel algorithm="fibonacci" />
+      </QuizContainer>
     </Container>
   )
 } 
