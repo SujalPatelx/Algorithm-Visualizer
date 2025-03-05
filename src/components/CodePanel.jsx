@@ -108,6 +108,25 @@ const selectionSortCode = [
   '}'
 ];
 
+const caesarCipherCode = [
+  'function encrypt(text, shift) {',
+  '    return text.toUpperCase()',
+  '        .split("")',
+  '        .map(char => {',
+  '            if (char.match(/[A-Z]/)) {',
+  '                const code = ((char.charCodeAt(0) - 65 + shift) % 26) + 65',
+  '                return String.fromCharCode(code)',
+  '            }',
+  '            return char',
+  '        })',
+  '        .join("")',
+  '}',
+  '',
+  'function decrypt(text, shift) {',
+  '    return encrypt(text, 26 - shift)',
+  '}'
+];
+
 const CodePanel = ({ algorithm, currentStep, comparing }) => {
   const getHighlightedLines = () => {
     if (!comparing || comparing.length === 0) return [];
@@ -150,6 +169,15 @@ const CodePanel = ({ algorithm, currentStep, comparing }) => {
         }
         return [8, 9];
       
+      case 'caesar':
+        if (comparing.length === 1) {
+          return [1, 2];
+        }
+        if (comparing.length === 2) {
+          return [4, 5, 6];
+        }
+        return [7, 8];
+      
       default:
         return [];
     }
@@ -167,6 +195,8 @@ const CodePanel = ({ algorithm, currentStep, comparing }) => {
         return insertionSortCode;
       case 'selection':
         return selectionSortCode;
+      case 'caesar':
+        return caesarCipherCode;
       default:
         return bubbleSortCode;
     }
@@ -184,6 +214,8 @@ const CodePanel = ({ algorithm, currentStep, comparing }) => {
         return 'Insertion Sort Algorithm';
       case 'selection':
         return 'Selection Sort Algorithm';
+      case 'caesar':
+        return 'Caesar Cipher Algorithm';
       default:
         return 'Sorting Algorithm';
     }
