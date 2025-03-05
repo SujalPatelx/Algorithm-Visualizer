@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from "react"
 import styled from "styled-components"
 import { Play, Pause, RotateCcw, SkipBack, SkipForward, Repeat, FastForward } from 'lucide-react'
+import QuizPanel from '../components/QuizPanel'
 
 // Styled Components
 const Container = styled.div`
@@ -222,6 +223,21 @@ const FeaturesList = styled.ul`
   }
 `
 
+const Section = styled.div`
+  margin-top: 2rem;
+`
+
+const SectionTitle = styled.h2`
+  font-size: 1.25rem;
+  color: var(--text-color);
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+`
+
+const QuizSection = styled(Section)`
+  margin-top: 2rem;
+`;
+
 export default function FactorialVisualizer() {
   const [input, setInput] = useState("5")
   const [steps, setSteps] = useState([])
@@ -437,16 +453,10 @@ export default function FactorialVisualizer() {
           </StepsColumn>
         </VisualizationContainer>
         
-        <FeaturesContainer>
-          <FeaturesTitle>Features & Controls</FeaturesTitle>
-          <FeaturesList>
-            <li>Play/Pause: Control the animation</li>
-            <li>Step Controls: Move forward or backward one step at a time</li>
-            <li>Auto Replay: Automatically restart the animation when complete</li>
-            <li>Speed Control: Adjust the animation speed (0.5x to 2x)</li>
-            <li>Reset: Start over from the beginning</li>
-          </FeaturesList>
-        </FeaturesContainer>
+        <Section>
+          <SectionTitle>Test Your Knowledge</SectionTitle>
+          <QuizPanel algorithm="factorial" />
+        </Section>
       </VisualizerContainer>
     </Container>
   )
