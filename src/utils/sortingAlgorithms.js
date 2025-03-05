@@ -262,55 +262,49 @@ export const getInsertionSortSteps = (array) => {
 export const getSelectionSortSteps = (array) => {
   const steps = [];
   const arr = [...array];
-
-  steps.push({
-    array: [...arr],
-    comparing: [],
-    explanation: 'Starting Selection Sort algorithm'
-  });
-
+  
   for (let i = 0; i < arr.length - 1; i++) {
     let minIdx = i;
-
+    
+    // Add initial state of this pass
     steps.push({
       array: [...arr],
-      comparing: [i],
-      explanation: `Looking for smallest element starting from index ${i}`
+      comparing: [i, minIdx],
+      sorted: array.slice(0, i)
     });
-
+    
     for (let j = i + 1; j < arr.length; j++) {
+      // Add step for each comparison
       steps.push({
         array: [...arr],
-        comparing: [minIdx, j],
-        explanation: `Comparing ${arr[minIdx]} with ${arr[j]}`
+        comparing: [j, minIdx],
+        sorted: array.slice(0, i)
       });
-
+      
       if (arr[j] < arr[minIdx]) {
         minIdx = j;
-        steps.push({
-          array: [...arr],
-          comparing: [minIdx],
-          explanation: `Found new minimum: ${arr[minIdx]}`
-        });
       }
     }
-
+    
     if (minIdx !== i) {
+      // Swap elements
       [arr[i], arr[minIdx]] = [arr[minIdx], arr[i]];
+      
+      // Add step for the swap
       steps.push({
         array: [...arr],
         comparing: [i, minIdx],
-        explanation: `Swapped ${arr[i]} with ${arr[minIdx]}`,
-        swapped: true
+        sorted: array.slice(0, i + 1)
       });
     }
   }
-
+  
+  // Add final state
   steps.push({
     array: [...arr],
     comparing: [],
-    explanation: 'Selection Sort completed!'
+    sorted: arr
   });
-
+  
   return steps;
 };
