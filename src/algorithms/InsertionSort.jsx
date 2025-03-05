@@ -5,6 +5,7 @@ import Visualizer from '../components/Visualizer';
 import CodePanel from '../components/CodePanel';
 import { getInsertionSortSteps } from '../utils/sortingAlgorithms';
 import StepExplanation from '../components/StepExplanation';
+import QuizPanel from '../components/QuizPanel';
 
 const AlgorithmContainer = styled.div`
   max-width: 1400px;
@@ -90,6 +91,17 @@ const Complexity = styled.div`
       color: var(--primary-color);
     }
   }
+`;
+
+const QuizSection = styled.div`
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(74, 144, 226, 0.08);
+  border: 1px solid #e8f0fe;
+  min-height: 450px;
+  display: flex;
+  flex-direction: column;
 `;
 
 function InsertionSort() {
@@ -210,6 +222,10 @@ function InsertionSort() {
               comparing={history[currentStep]?.comparing || []}
             />
           </Section>
+          <QuizSection>
+            <SectionTitle>Test Your Knowledge</SectionTitle>
+            <QuizPanel algorithm="insertion" />
+          </QuizSection>
         </VisualizerContainer>
       </VisualizerWrapper>
     </AlgorithmContainer>

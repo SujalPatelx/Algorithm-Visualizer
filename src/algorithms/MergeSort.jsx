@@ -5,6 +5,7 @@ import Visualizer from '../components/Visualizer';
 import CodePanel from '../components/CodePanel';
 import { getMergeSortSteps } from '../utils/sortingAlgorithms';
 import StepExplanation from '../components/StepExplanation';
+import QuizPanel from '../components/QuizPanel';
 
 const AlgorithmContainer = styled.div`
   max-width: 1400px;
@@ -35,6 +36,10 @@ const SectionTitle = styled.h2`
   font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 1rem;
+`;
+
+const QuizSection = styled(Section)`
+  margin-top: 2rem;
 `;
 
 function MergeSort() {
@@ -142,6 +147,10 @@ function MergeSort() {
             comparing={history[currentStep]?.comparing || []}
           />
         </Section>
+        <QuizSection>
+          <SectionTitle>Test Your Knowledge</SectionTitle>
+          <QuizPanel algorithm="merge" />
+        </QuizSection>
       </VisualizerContainer>
     </AlgorithmContainer>
   );

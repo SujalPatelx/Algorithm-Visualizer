@@ -5,6 +5,7 @@ import Visualizer from '../components/Visualizer';
 import CodePanel from '../components/CodePanel';
 import StepExplanation from '../components/StepExplanation';
 import { getQuickSortSteps } from '../utils/sortingAlgorithms';
+import QuizPanel from '../components/QuizPanel';
 
 const AlgorithmContainer = styled.div`
   max-width: 1400px;
@@ -64,6 +65,10 @@ const VisualizerWrapper = styled.div`
 const SectionTitle = styled.h2`
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
+`;
+
+const QuizSection = styled(Section)`
+  margin-top: 2rem;
 `;
 
 function QuickSort() {
@@ -185,6 +190,10 @@ function QuickSort() {
               comparing={history[currentStep]?.comparing || []}
             />
           </Section>
+          <QuizSection>
+            <SectionTitle>Test Your Knowledge</SectionTitle>
+            <QuizPanel algorithm="quick" />
+          </QuizSection>
         </VisualizerContainer>
       </VisualizerWrapper>
     </AlgorithmContainer>
